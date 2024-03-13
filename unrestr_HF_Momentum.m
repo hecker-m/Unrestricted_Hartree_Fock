@@ -169,6 +169,7 @@ function [Nb_approx,test]=Nb_fcn(mu,nA1g,nA2g,nB1g,nB2g,xA1g,xB1g,xB2g)
     end
     Nb_approx=real(Nb_approx)/Nx/Ny/Nz;
 end
+
 %As we keep the particle number Nb fixed, 
 %we have to always adjust the chemical potential
 %Finds the current chemical potential through interval nesting
@@ -214,6 +215,7 @@ function mu_approx=mu_det(nA1g,nA2g,nB1g,nB2g,xA1g,xB1g,xB2g)
     end
     mu_approx=mu3;
 end
+
 %Computes the free energy for the given configuration x
 function y=free_energy(x)
     global count Nx Ny Nz u v w Temp SigmaZ mu Nb
@@ -262,6 +264,8 @@ function y=free_energy(x)
     end
     y=real(y)/Nx/Ny/Nz;
 end
+
+
 %Constructs the 4x4 BdG-Matrix
 function HBdG=HBdG_fcn(kx,ky,kz,mu,nA1g,nA2g,nB1g,nB2g,xA1g,xB1g,xB2g)
     global s0 sx sy sz u v w
@@ -276,6 +280,7 @@ function HBdG=HBdG_fcn(kx,ky,kz,mu,nA1g,nA2g,nB1g,nB2g,xA1g,xB1g,xB2g)
     HBdG=kron((s0+sz)/2,h00)+kron((s0-sz)/2,transpose(h00))+kron((sx+1i*sy)/2,x00)+kron((sx-1i*sy)/2,ctranspose(x00));
 end
 
+%checks whether the eigenvalues have non-zero imaginary parts
 function test=test_fcn(evs,eps)
     test=0;     
     for i=1:4
@@ -285,11 +290,13 @@ function test=test_fcn(evs,eps)
         end
     end
 end
+
 %Bose function
 function nb=nb_scal_fcn(omega)
     global Temp
     nb=1/(exp(omega/Temp)-1);
 end
+
 %Bose function
 function nbmat=nb_fcn(evs,N)
     global Temp
@@ -298,6 +305,7 @@ function nbmat=nb_fcn(evs,N)
         nbmat(i,i)=1/(exp(evs(i,1)/Temp)-1);
     end
 end
+
 %A1g dispersion relation
 function val=fA1g(kx,ky,kz)
     global dpar dz
