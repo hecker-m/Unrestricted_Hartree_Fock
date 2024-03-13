@@ -1,0 +1,7 @@
+
+#Ignore all lyx files
+*.lyx
+*.lyx~
+
+
+
