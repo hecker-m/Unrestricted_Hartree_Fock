@@ -6,4 +6,4 @@ After simplification to a Bogoliuboc-de-Gennes Hamiltonian, we analyze the fluct
 with respect to potential preformed phases, 
 either nematic, ferromagnetic, or charge-4e superconducting phases.
 
-(Code has not been maintained since 2021.)
+(Code has not been maintained or improved since 2021.)
