@@ -1,5 +1,4 @@
 # Unrestricted_Hartree_Fock
-
 Contains a short Matlab routine that implements an unrestricted Hartree-Fock routine.
 
 The project (described in the pdf notes) starts from a bosonic superconducting Hamiltonian.
